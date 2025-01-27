@@ -1,0 +1,116 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+:root {
+    --tiffany: #5ff5e1;
+    --task: rgb(240, 191, 76);
+}
+
+body {
+    background-color: var(--tiffany);
+}
+
+header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+    font-family: 'Courier New', Courier, monospace;
+    padding: 1rem 0;
+    background: rgb(1, 116, 116);
+    color: #fff;
+}
+
+h1 {
+    font-size: 2.5rem;
+}
+
+h3 {
+    font-size: 1.8rem;
+    font-weight: bolder;
+}
+
+.add {
+    padding: .8rem;
+    background: var(--tiffany);
+    border: none;
+    border-radius: 1rem;
+    font-size: 1.3rem;
+    cursor: pointer;
+}
+
+.menu {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    border: 2px solid #000000;
+    box-shadow: 0 0 10px ;
+    padding: 2rem;
+    width: 70%;
+    margin: 1rem auto;
+    text-align: center;
+}
+
+.menu input {
+    width: 60%;
+    margin: 0 auto;
+    border-radius: 1rem;
+    border: none;
+    padding: .7rem;
+    background: var(--task);
+    font-size: 1.3rem;
+    color: #f1eded;
+}
+
+.menu button {
+    width: 40%;
+    margin: 0 auto;
+    border-radius: 1rem;
+    border: none;
+    padding: .7rem;
+    background: var(--task);
+    cursor: pointer;
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #323232;
+}
+
+.result {
+    padding: .6rem;
+}
+
+.task {
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: 1.7rem;
+    padding: .9rem;
+    background-color: var(--task);
+    margin-bottom: 1rem;
+    width: 45%;
+    border-radius: .9rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    color: #257e8e;
+}
+
+#check {
+    transform: scale(2);
+}
+
+.taskLeft {
+    display: flex;
+    gap: 2.4rem;
+    align-items: center;
+}
+
+.task button {
+    background: transparent;
+    border: none;
+}
+
+.task img {
+    mix-blend-mode: multiply;
+}
+

@@ -1,0 +1,22 @@
+@media(max-width: 500px) {
+    .task {
+        width: 85%;
+    }
+
+    #check {
+        transform: scale(1.6);
+    }
+
+    .taskLeft {
+        display: flex;
+        gap: 2rem;
+        align-items: center;
+    }
+    
+    .task img {
+        mix-blend-mode: multiply;
+        height: 40px;
+        width: 40px;
+    }
+        
+}
