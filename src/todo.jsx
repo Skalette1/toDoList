@@ -20,12 +20,18 @@ export function ToDoList() {
     }
 
     function addNewTask() {
+        if (input === '') {
+            alert('Для кого я поле ввода сделал?');
+            return
+        }
+
         const newTask = new Task(input);
         setTasklist([...tasklist,newTask]);
         setIsMenuVisible(false);
         setInput('');
         header.style.opacity = '1';
     }
+
 
     function deleteTask(indexToDelete) {
         const updatedTaskList = tasklist.filter((task, index) => index !== indexToDelete);
