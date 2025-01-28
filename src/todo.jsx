@@ -11,6 +11,7 @@ export function ToDoList() {
     class Task {
         constructor(task) {
             this.task = task;
+            this.isChecked = false;
         }
     }
 
@@ -38,6 +39,16 @@ export function ToDoList() {
         setTasklist(updatedTaskList); 
     }
 
+    function boxIsChecked(index) {
+        const updateTask = tasklist.map((task, ind) => {
+            if (ind === index) {
+                return {...task, isChecked: !task.isChecked}
+            }
+            return task
+        })
+        setTasklist(updateTask)
+    }
+
     useEffect(() => {
         localStorage.setItem('toDoTasks', JSON.stringify(tasklist))
     }, [tasklist])
@@ -58,7 +69,11 @@ export function ToDoList() {
             )}
             <div className="result">
                 {tasklist.map((taskElement, index) => (
-                    <div key={index} className='task'><div className='taskLeft'>{taskElement.task}<input type='checkBox' id='check'/></div><button onClick={() => deleteTask(index)}><img src="public/trash-bin.png" height={50} width={50} /></button></div>
+                    <div key={index} className='task'>
+                    <div className='taskLeft'>
+                    {taskElement.task}<input type='checkBox' id='check' checked={taskElement.isChecked} onChange={() => boxIsChecked(index)} /></div>
+                    <button onClick={() => deleteTask(index)}><img src="public/trash-bin.png" height={50} width={50} /></button>
+                    </div>
                 ))}
             </div>
         </div>
