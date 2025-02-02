@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useState, useEffect, useRef } from 'react';
 
 export function ToDoList() {
     const [isMenuVisible, setIsMenuVisible] = useState(false);
@@ -15,22 +15,30 @@ export function ToDoList() {
         }
     }
 
+    const refs = {
+        header: useRef(null),
+        result: useRef(null)
+    }
+
     function showAddTaskMenu() {
         setIsMenuVisible(true);
-        header.style.opacity = '.3' 
+        Object.values(refs).forEach(ref => {
+          ref.current.style.opacity = '.3'
+        })
     }
 
     function addNewTask() {
         if (input === '') {
-            alert('Для кого я поле ввода сделал?');
+            alert('Я для кого поле ввода сделал?');
             return
         }
-
         const newTask = new Task(input);
         setTasklist([...tasklist,newTask]);
         setIsMenuVisible(false);
         setInput('');
-        header.style.opacity = '1';
+        Object.values(refs).forEach(ref => {
+           ref.current.style.opacity = '1'
+        })
     }
 
 
@@ -56,7 +64,7 @@ export function ToDoList() {
     
     return (
         <div className = 'container'>
-            <header>
+            <header ref={refs.header}>
             <h1>Список дел</h1>
             <button onClick={showAddTaskMenu} className='add'>Добавить задачу</button>
             </header>
@@ -67,7 +75,7 @@ export function ToDoList() {
                       <button className="appendToDo" onClick={addNewTask}>Добавить</button>
                 </div>
             )}
-            <div className="result">
+            <div className="result" ref={refs.result}>
                 {tasklist.map((taskElement, index) => (
                     <div key={index} className='task'>
                     <div className='taskLeft'>
@@ -80,5 +88,4 @@ export function ToDoList() {
     )
 }
 
-const header = document.querySelector('header');
 
